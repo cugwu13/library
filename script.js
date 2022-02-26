@@ -43,18 +43,18 @@ addDeleteEL();
 addReadEL();
 
 // Add click event to #new-book button
-newBook.addEventListener('click', () => removeForm());
+newBook.addEventListener('click', () => showForm()); // instead, toggle a show class
 
 // Add click event to .submit button
 submitNewBook.addEventListener('click', () => {
     createBookCard();
-    removeForm();
+    hideForm();
     resetForm();
 })
 
 // Add click event to .cancel button
 cancelNewBook.addEventListener('click', () => {
-    removeForm();
+    hideForm();
     resetForm();
 });
 
@@ -141,19 +141,24 @@ function createBookCard() {
     let readStatus = document.querySelector('input[name=read-status]:checked').value;
     readStatus = readStatus === 'true';
 
-    // Add form data into myLibrary as a book obj
     addBookToLibrary(titleField.value, authorField.value, pagesField.value, readStatus, globalId);
-
-    // Take new book (last element in myLibrary) and create book card on page
     populateCard(myLibrary.at(-1), myLibrary.at(-1).id);
-
-    // Add event listeners to buttons
     addDeleteEL();
     addReadEL();
 }
 
 function removeForm() {
     formContainer.classList.toggle('no-display');
+}
+
+function showForm() {
+    formContainer.classList.remove('hide');
+    formContainer.classList.add('show');
+}
+
+function hideForm() {
+    formContainer.classList.remove('show');
+    formContainer.classList.add('hide');
 }
 
 function resetForm() {

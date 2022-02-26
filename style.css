@@ -5,6 +5,8 @@
     font-family: 'ZCOOL QingKe HuangYou', 'sans-serif';
     --content-bg-color: rgb(228, 234, 238);
     --btn-color: rgb(2, 179, 179);
+    --fade-in: opacity .2s linear;
+    --fade-out: opacity .1s linear;
 }
 
 h1 {
@@ -32,7 +34,6 @@ body {
 
 .header > img {
     border-radius: 50%;
-    /* background-color: rgb(255, 217, 0); */
     width: 50px;
     height: auto;
 }
@@ -105,6 +106,23 @@ body {
 
 .no-display {
     display: none;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--fade-out);
+    -webkit-transition: var(--fade-out);
+    -moz-transition: var(--fade-out);
+    -o-transition: var(--fade-out);
+}
+
+.show {
+    opacity: 1;
+    transition: var(--fade-in);
+    -webkit-transition: var(--fade-in);
+    -moz-transition: var(--fade-in);
+    -o-transition: var(--fade-in);
 }
 
 .form-container {
