@@ -1,1 +1,2 @@
 # library
+The purpose of this project is to create a library application. Users will be able to enter books that they've read, change the status of these books (**read** or **not read**), and delete books from the library.
